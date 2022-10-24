@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');// npm install mysql2
 const app = express();
 
-require('dotenv').config({'mysql/.env'});// yarn add dotenv
+require('dotenv').config({path: 'mysql/.env'});// yarn add dotenv
 
 app.get('/', function (req, res) {// create the connection to database
   const connection = mysql.createConnection({
@@ -15,7 +15,7 @@ app.get('/', function (req, res) {// create the connection to database
   let body = '<h1>single row</h1>';
   // simple query
   connection.query(
-    'SELECT * FROM topic WHERE id = 1',
+    'SELECT * FROM topic WHERE id = ? AND ',
     function(err, results, fields) {
       console.log(err);
       console.log(results); // results contains rows returned by server
