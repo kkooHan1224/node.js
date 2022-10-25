@@ -1,4 +1,4 @@
-const condition = true; // true 면 resolve, false면 reject
+const condition = Math.random() < 0.5; // true 면 resolve, false면 reject      -> math.random()을 쓰면 0~1 숫자가 나오고 0.5보다 작을 확률은 딱 50%다.
 const promise = new Promise((resolve, reject) => {
     if (condition) {
         resolve('성공');
