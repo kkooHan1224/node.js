@@ -1,0 +1,34 @@
+<!-- axios -->
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    axios.get('https://www.zerocho.com/api/get')    // zerocho~ : 빈 객체 머시기 테스트하는 사이트
+        .then((result) => {
+            console.log(result);
+            console.log(result.data);   // {}
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+</script>
+
+
+
+<!-- jquery -->
+
+<script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+<script>
+    window.$ = jQuery
+    $.get('https://www.zerocho.com/api/get')
+        .done((data) => {
+            console.log(data);  // {}
+        })
+        .fail((error) => {
+            console.log(error);
+        });
+</script>
+
+
+
+<!-- axios를 이용할 때와 jQuery를 이용할 때 사용하는 문법에 다소 차이가 있다. -->
+
