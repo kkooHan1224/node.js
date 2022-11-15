@@ -1,17 +1,20 @@
 /* https://www.acmicpc.net/problem/10828 */
 
 const fs = require('fs');
-const [n, input] = fs.readFileSync('input.txt').toString().trim().split('\n');
-const inputArr = input.trim().split(' ')
+const input = fs.readFileSync('input.txt').toString().trim().split('\n');
+// const [n, input] = fs.readFileSync('input.txt').toString().trim().split('\n');
 
-// let inputArr2 = inputArr.toString().split(' ');
-var $a = inputArr[0];
-var $b = parseInt(inputArr[1]);
+for (i = 1; i < input.length; i++) {
+    const inputArr = input[i].trim().split(' ')
 
-console.log($a);
-console.log($b);
+    var firstEl = inputArr[0];
+    var secondEl = parseInt(inputArr[1]);
 
-var stack = [];
-if ($b) {
-    stack[$a]($b);
-} stack[$a];
+    console.log(firstEl);
+    console.log(secondEl);
+
+    var stack = [];
+    if (secondEl) {
+        stack[firstEl](secondEl);
+    } stack[firstEl];
+}

@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <style>
+            #calc {
+                width: 800px;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 auto;
+            }
+            input {
+                width: 720px;
+                height: 50px;
+            }
+            button {
+                width: 180px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+
+        
+
+        <div id="calc" onchange="printNum()"/>        
+            <!--  미션1_후보3_2-1 -->
+            <input type="number" id='output_num' onchange='printName()'/>
+            <!-- 기존 코드 -->
+            <!-- <input type="number" id="output_num" /> -->
+            <button value="AC">AC</button>
+            <button value="^">^</button>
+            <button value="%">%</button>
+            <button value="/">/</button>
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+            <button value="*">*</button>
+            <button value="4">4</button>
+            <button value="5">5</button>
+            <button value="6">6</button>
+            <button value="-">-</button>
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button value="+">+</button>
+            <button value="0">0</button>
+            <button value="=">=</button>
+            <!--  미션1_후보3_2-2 -->
+            <div id='result'></div>
+        </div>
+
+        <script>
+            var buttons = document.querySelectorAll("button");
+            for ( var i = 0; i < buttons.length; i++) {
+                // 반복 실행
+                buttons[i].addEventListener("click", function (event) {
+                    // EventListener -> click 이벤트에 실행되는 코드
+                    var text = event.target.innerText;
+                    console.log(text);
+                    // 축약 연산자
+                    document.querySelector("input").value += text;       
+                });
+            }
+
+
+
+
+
+            // @미션1@ - 입력창에 있는 숫자를 가져온다.
+
+            // 후보 1. => 생각한 것처럼 console.log로 출력했을 때 출력이 안된다.
+            // var cal_num = document.getElementById('output_num').value;
+            // console.log(cal_num);
+
+            // 후보 2. => 후보 1과 동일하게 출력 안됨.
+            // var cal_num = document.querySelector('output_num').value;
+
+            // 축약연산자 활용하기?
+
+            // 후보 3. 
+            function printName()  {
+                const num = document.getElementById('output_num').value;
+                document.getElementById("result").innerText = num;
+            }
+            
+
+
+
+
+            // @미션2@ - 가져온 값을 숫자로 바꾼 뒤 계산한다.
+
+            // <참고할만한 코드>
+            // function microCalculator(n1, n2, operator) {
+            //     if(operator === '+') {
+            //         return num1 + num2;
+            //     } else if(operator === '-') {
+            //         return num1 - num2;
+            //     } else if(operator === '*') {
+            //         return num1 * num2;
+            //     } else if(operator === '/') {
+            //         return num1 / num2;
+            //     } 
+            // }
+
+
+
+
+
+            // @미션3@ - 계산한 값을 출력한다.
+
+        </script>
+    </body>
+</html>
