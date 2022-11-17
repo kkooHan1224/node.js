@@ -18,9 +18,6 @@
         </style>
     </head>
     <body>
-
-        
-
         <div id="calc" onchange="printNum()"/>        
             <!--  미션1_후보3_2-1 -->
             <input type="number" id='output_num' onchange='printName()'/>
@@ -49,15 +46,42 @@
         </div>
 
         <script>
+            /* 선생님 설명
+            숫자 입력 or 연산자 입력이 가능하다.
+            숫자 입력시 -> input 숫자 연결, 새로운 숫자
+            */
+
+
             var buttons = document.querySelectorAll("button");
+            var input = document.querySelector("input")
+            var operand = undefined;    // 값을 대입하지 않았다.
             for ( var i = 0; i < buttons.length; i++) {
                 // 반복 실행
                 buttons[i].addEventListener("click", function (event) {
                     // EventListener -> click 이벤트에 실행되는 코드
                     var text = event.target.innerText;
                     console.log(text);
-                    // 축약 연산자
-                    document.querySelector("input").value += text;       
+                    switch(text) {
+                        case '+': 
+                        case '-': 
+                        case '*': 
+                        case '/': 
+                            operand = parseInt(input.value);
+                            flag = true;
+                            break;
+                        default:
+                            //연산 버튼을 눌렀을 때 수를 새로 쓴다
+                            if (flag) {
+                                input.value = text;
+                                flag = false;
+                            } else {
+                                input.value += text;
+                            }
+                    }
+                    // // 축약 연산자 - input의 value에 text를 추가(연결)
+                    // document.querySelector("input").value += text;
+                    // // input 변수 만들고 가독성 높이기
+                    // input.value += text;
                 });
             }
 
